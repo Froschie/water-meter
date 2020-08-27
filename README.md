@@ -26,3 +26,13 @@ Total                          ~50€
 ## Connection Diagram
 
 <img src="https://raw.githubusercontent.com/Froschie/water-meter/master/wemos_water_meter.png" width="600" height="360" alt="Connection Diagram">
+
+
+## Arduino IDE Configuration
+
+In Arduino IDE please make sure that:
+* "ESP8266" support has been installed via "Board Manager"
+* "ESP8266 Influxdb" support has been installed via "Library Manager"
+
+Example of Board Settings in Arduino IDE (please select correct COM port):
+![Arduino IDE Board Config](https://raw.githubusercontent.com/Froschie/water-meter/master/arduino_ide_boardconfig.png)
