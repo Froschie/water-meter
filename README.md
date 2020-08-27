@@ -31,7 +31,7 @@ Total                          ~50€
 ## Arduino IDE Configuration
 
 In Arduino IDE please make sure that:
-* "ESP8266" support has been installed via "Board Manager"
+* "ESP8266" support has been installed via "Board Manager" (using the Board Manager URL: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`)
 * "ESP8266 Influxdb" support has been installed via "Library Manager"
 
 Example of Board Settings in Arduino IDE (please select correct COM port):
