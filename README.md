@@ -35,4 +35,5 @@ In Arduino IDE please make sure that:
 * "ESP8266 Influxdb" support has been installed via "Library Manager"
 
 Example of Board Settings in Arduino IDE (please select correct COM port):
+
 ![Arduino IDE Board Config](https://raw.githubusercontent.com/Froschie/water-meter/master/arduino_ide_boardconfig.png)
