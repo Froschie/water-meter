@@ -4,7 +4,7 @@ Photoelectronic Sensor connected to a WeMos D1 Mini for monitoring the consumpti
 As the usual water meters used by the water providers in germany do not offer any impuls / digital interface, it was quite impossible to monitor the water usage for the smarthome.
 To overcome this limitation, the below description is basically my implementation of the descriptions and inspirations I´ve taken from [HomeMatic Forum](https://homematic-forum.de/forum/viewtopic.php?t=35461) work of "klassisch".
 
-The sensor was placed over the analog 1l counter of the water meter and is creating an impulse (voltage drop) each time the needle passes by. This is counted via interrupt of an input pin of an WeMos D1 Mini ESP8266 board. Every second the counter value is checked and written to InfluxDB.
+The sensor was placed over the analog 1l counter of the water meter and is creating an impulse (voltage drop) each time the needle passes by. This is counted via interrupt of an input pin of an WeMos D1 Mini ESP8266 board. The WeMos is connected via 2.4GHz Wifi. Every second the counter value is checked and if needed written to InfluxDB.
 
 Important note is to not use the USB connectivity for power supply, but really use external 5V supply. With the USB connection some impulse signals might get lost.
 
