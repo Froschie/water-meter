@@ -28,6 +28,11 @@ Total                          ~50€
 <img src="https://raw.githubusercontent.com/Froschie/water-meter/master/wemos_water_meter.png" width="600" height="360" alt="Connection Diagram">
 
 
+## Physical WeMos and Sensor Installation
+
+<img src="https://raw.githubusercontent.com/Froschie/water-meter/master/wemos_cabling.png" width="500" height="500" alt="WeMos Caling"><img src="https://raw.githubusercontent.com/Froschie/water-meter/master/sensor_mounted.png" width="500" height="331" alt="Sensor Mounted">
+
+
 ## Arduino IDE Configuration
 
 In Arduino IDE please make sure that:
