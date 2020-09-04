@@ -30,7 +30,7 @@ Total                          ~50€
 
 ## Physical WeMos and Sensor Installation
 
-<img src="https://raw.githubusercontent.com/Froschie/water-meter/master/wemos_cabling.png" width="500" height="500" alt="WeMos Caling"><img src="https://raw.githubusercontent.com/Froschie/water-meter/master/sensor_mounted.png" width="500" height="331" alt="Sensor Mounted">
+<img src="https://raw.githubusercontent.com/Froschie/water-meter/master/wemos_cabling.png" width="450" height="450" alt="WeMos Caling"><img src="https://raw.githubusercontent.com/Froschie/water-meter/master/sensor_mounted.png" width="450" height="298" alt="Sensor Mounted">
 
 
 ## Arduino IDE Configuration
@@ -44,28 +44,10 @@ Example of Board Settings in Arduino IDE (please select correct COM port):
 ![Arduino IDE Board Config](https://raw.githubusercontent.com/Froschie/water-meter/master/arduino_ide_boardconfig.png)
 
 
-## InfluxDB Setup via Docker Compose
-```yaml
-version: '3'
-
-services:
-  <influxdb-service-name>:
-    image: influxdb:latest
-    container_name: <influxdb_container_name>
-    ports:
-      - 8086:8086
-    volumes:
-      - </some_folder>:/var/lib/influxdb
-    environment:
-      - INFLUXDB_HTTP_AUTH_ENABLED=true
-      - INFLUXDB_MONITOR_STORE_ENABLED=false
-      - INFLUXDB_DB=<db>
-      - INFLUXDB_ADMIN_USER=<admin>
-      - INFLUXDB_ADMIN_PASSWORD=<pw1>
-      - INFLUXDB_USER=<user>
-      - INFLUXDB_USER_PASSWORD=<pw2>
-      - INFLUXDB_READ_USER=<read>
-      - INFLUXDB_READ_USER_PASSWORD=<pw3>
-    restart: unless-stopped
+## InfluxDB Setup via Docker Compose File
+```bash
+curl -O https://raw.githubusercontent.com/Froschie/water-meter/master/docker-compose.yaml
+vi docker-compose.yaml
+docker-compose up -d
 ```
-Please adapt the parameters in <> brackets, use external folder to save the database and use matching values in the WeMos configuration!
+*Note: please adapt the parameters in <> brackets, use external folder to save the database and use matching values in the WeMos configuration! Don´t override your existing docker compose file!*
