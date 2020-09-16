@@ -43,6 +43,8 @@ Example of Board Settings in Arduino IDE (please select correct COM port):
 
 ![Arduino IDE Board Config](https://raw.githubusercontent.com/Froschie/water-meter/master/arduino_ide_boardconfig.png)
 
+Load the [Arduino Sketch Template](https://raw.githubusercontent.com/Froschie/water-meter/master/D1_Mini_-_Influx_Interrupt_v21_template.ino), adapt the values to your InfluxDB environment, first verify the code and finally flash it to the WeMos.
+
 
 ## InfluxDB Setup via Docker Compose File
 ```bash
