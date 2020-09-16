@@ -22,12 +22,21 @@ const unsigned long DeltaTime = 250;                       // defining the minim
 // GPIO Definiton for Water Meter Sensor
 #define SENSOR_PIN 14                                      // defining the monitored GPIO PIN (default GPIO14, D5)
 
-// InfluxDB Parameter
-#define INFLUXDB_URL "http://192.168.1.2:8086"             // enter InfluxDB URL like http/https://<ip>:<port>
-#define INFLUXDB_DB_NAME "db"                              // enter InfluxDB DB Name
-#define INFLUXDB_USER "user"                               // enter InfluxDB User
-#define INFLUXDB_PASSWORD "pw"                             // enter InfluxDB PW
+// Choose either InfluxDB v1 or InfluxDB v2 parameterization!!!
+// InfluxDB v1 Parameter
+#define INFLUXDB_URL "http://192.168.1.2:8086"             // enter InfluxDB v1 URL like http/https://<ip>:<port>
+#define INFLUXDB_DB_NAME "db"                              // enter InfluxDB v1 DB Name
+#define INFLUXDB_USER "user"                               // enter InfluxDB v1 User
+#define INFLUXDB_PASSWORD "pw"                             // enter InfluxDB v1 PW
 InfluxDBClient client(INFLUXDB_URL, INFLUXDB_DB_NAME);
+// InfluxDB v2 Parameter
+// #define INFLUXDB_URL "url"                              // enter InfluxDB v2 URL like http/https://<ip>:<port>
+// #define INFLUXDB_TOKEN "token"                          // enter InfluxDB v2 Token
+// #define INFLUXDB_ORG "org"                              // enter InfluxDB v2 Org
+// #define INFLUXDB_BUCKET "bucket"                        // enter InfluxDB v2 Bucket
+// InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN);
+
+// InfluxDB Series
 Point sensor("water_meter");                               // enter InfluxDB Point Name
 
 // Board Initialization
@@ -52,8 +61,10 @@ void setup() {
   pinMode(SENSOR_PIN, INPUT);
   attachInterrupt(digitalPinToInterrupt(SENSOR_PIN), sensorCheck, FALLING);
   
-  // Start InfluxDB Connection
+  // Start InfluxDB v1 Connection (not needed for InfluxDB v2)
   client.setConnectionParamsV1(INFLUXDB_URL, INFLUXDB_DB_NAME, INFLUXDB_USER, INFLUXDB_PASSWORD);
+  
+  // Check Connectivity
   if (client.validateConnection()) {
     Serial.print("Connected to InfluxDB: ");
     Serial.println(client.getServerUrl());
